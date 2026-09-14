@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Book Recommendation System — Demo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main>
+    <h1>AI Book Recommendation System</h1>
+    <p class="subtitle">
+      Portfolio demo — runs entirely on synthetic customers, books, and transactions.
+      No real store, customer, or catalog data. See the
+      <a href="https://github.com/KathrynV/ai-book-recommendation-system" target="_blank" rel="noopener">README</a>
+      for the architecture.
+    </p>
+
+    <div id="chooser" class="chooser">
+      <button type="button" id="choose-existing" class="chooser-btn">
+        Existing customer
+        <span>Pick a demo customer, see their inferred preferences, get 3 recommendations they haven't had yet.</span>
+      </button>
+      <button type="button" id="choose-new" class="chooser-btn">
+        New customer
+        <span>Enter an age and a couple of interests — get 3 matching titles from the demo catalog.</span>
+      </button>
+    </div>
+
+    <form id="existing-form" class="hidden">
+      <button type="button" class="back-link" data-back>← Back</button>
+      <label for="customerId">Demo customer</label>
+      <select id="customerId" name="customerId" required></select>
+      <button type="submit">Get recommendations</button>
+    </form>
+
+    <form id="new-form" class="hidden">
+      <button type="button" class="back-link" data-back>← Back</button>
+      <label for="age">Age</label>
+      <input id="age" name="age" type="number" min="1" max="17" placeholder="e.g. 6" required />
+      <label for="interests">Interests (comma-separated)</label>
+      <input id="interests" name="interests" type="text" placeholder="e.g. dinosaurs, science" required />
+      <button type="submit">Get recommendations</button>
+    </form>
+
+    <div id="status" class="status hidden"></div>
+
+    <div id="results" class="hidden">
+      <h2 id="results-heading"></h2>
+      <p id="results-sub"></p>
+      <ol id="results-list"></ol>
+    </div>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

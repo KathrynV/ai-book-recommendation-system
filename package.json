@@ -9,6 +9,7 @@
     "mcp-client-demo": "tsx src/mcp_client_demo.ts",
     "demo:existing": "tsx src/demo.ts existing",
     "demo:new": "tsx src/demo.ts new",
+    "web": "tsx src/web_server.ts",
     "build": "tsc",
     "typecheck": "tsc --noEmit"
   },

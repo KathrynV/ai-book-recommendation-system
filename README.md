@@ -48,6 +48,7 @@ The Claude reasoning step is optional: if `ANTHROPIC_API_KEY` is set, the app as
 
 ```
 data/                  synthetic customers.csv / books.csv / transactions.csv
+public/                minimal browser UI (index.html / app.js / style.css)
 src/
   data.ts              CSV loading (swap for a DB client in production)
   tools/
@@ -57,11 +58,24 @@ src/
     checkInventory.ts
   mcp_server/
     server.ts          MCP server exposing the tools above over stdio
+  mcp_client_demo.ts    real MCP client -> server round trip over stdio
   recommend.ts          recommendation engine (rule-based + optional Claude pass)
   demo.ts               CLI entry point for the two demo scenarios
+  web_server.ts          minimal HTTP server backing the browser UI
 ```
 
 ## Running the demo
+
+### In the browser
+
+```bash
+npm install
+npm run web
+```
+
+Then open [http://localhost:4000](http://localhost:4000) — pick "Existing customer" (choose one of the demo customer IDs) or "New customer" (enter an age and a few interests) and see live recommendations, backed by the same `src/recommend.ts` engine and synthetic data described above.
+
+### On the command line
 
 ```bash
 npm install
