@@ -1,0 +1,51 @@
+book_id,title,category,age_group,available
+B001,Forest Adventure,Nature,5-7,true
+B002,Space Explorers,Science,8-10,true
+B003,The Whispering Woods,Nature,5-7,true
+B004,Ocean Wonders,Nature,3-5,true
+B005,Starlight Voyage,Space,8-10,true
+B006,The Dragon's Garden,Fantasy,5-7,true
+B007,Mountain Trail Friends,Adventure,5-7,false
+B008,The Secret River,Adventure,8-10,true
+B009,Robot Builders Club,Science,8-10,true
+B010,Ancient Kingdoms,History,11-13,true
+B011,The Lighthouse Mystery,Adventure,8-10,true
+B012,Windmill Village,Friendship,5-7,true
+B013,The Brave Little Fox,Animals,3-5,true
+B014,Under the Northern Sky,Nature,8-10,true
+B015,The Clockwork Bear,Fantasy,5-7,true
+B016,Jungle Explorers Club,Animals,5-7,true
+B017,The Singing Forest,Nature,3-5,true
+B018,Paper Boats,Friendship,3-5,true
+B019,The Great Migration,Animals,8-10,true
+B020,Stars Over the Steppe,Space,11-13,true
+B021,The Curious Fox and the Moon,Animals,3-5,false
+B022,Snowfall Tales,Nature,5-7,true
+B023,The Tiny Astronaut,Space,5-7,true
+B024,Wolves of the North,Animals,11-13,true
+B025,The Garden of Time,Fantasy,8-10,true
+B026,Riverbend Friends,Friendship,5-7,true
+B027,The Last Dinosaur Egg,Dinosaurs,5-7,true
+B028,Voyage to Nowhere,Adventure,11-13,true
+B029,The Painted Sky,Nature,8-10,true
+B030,Grandmother's Orchard,Nature,5-7,true
+B031,The Hidden Meadow,Nature,5-7,true
+B032,Comet Chasers,Space,8-10,true
+B033,The Bear Who Counted Stars,Science,3-5,true
+B034,Feathers and Fables,Animals,5-7,true
+B035,The Salt Marsh Detective,Adventure,8-10,false
+B036,Beyond the Old Bridge,Adventure,11-13,true
+B037,The Kite Maker,Friendship,5-7,true
+B038,Tundra Tales,Nature,11-13,true
+B039,The Clever Otter,Animals,5-7,true
+B040,Seeds of Wonder,Science,5-7,true
+B041,The Night Train to Somewhere,Adventure,8-10,true
+B042,Pebble and the Big Sea,Nature,3-5,true
+B043,The Forgotten Lighthouse Keeper,Adventure,11-13,true
+B044,Roar of the Thunder Lizards,Dinosaurs,8-10,true
+B045,Bones in the Badlands,Dinosaurs,8-10,true
+B046,The Last Triceratops,Dinosaurs,5-7,true
+B047,Fossil Hunters Club,Dinosaurs,8-10,true
+B048,Rockets and Ravens,Science,8-10,true
+B049,The Chemistry of Clouds,Science,11-13,true
+B050,Gravity and Grandpa,Science,8-10,true
