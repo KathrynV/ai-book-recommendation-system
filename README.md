@@ -77,6 +77,12 @@ To run the MCP server standalone (e.g. to connect it to Claude Desktop or anothe
 npm run mcp-server
 ```
 
+To see a real MCP client talk to that server over stdio (list tools, call `get_customer_history` and `search_books`) rather than importing the tool functions directly:
+
+```bash
+npm run mcp-client-demo
+```
+
 ## Demo output
 
 **Existing customer** — profile built from transaction history, previously-read titles excluded:

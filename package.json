@@ -6,6 +6,7 @@
   "private": true,
   "scripts": {
     "mcp-server": "tsx src/mcp_server/server.ts",
+    "mcp-client-demo": "tsx src/mcp_client_demo.ts",
     "demo:existing": "tsx src/demo.ts existing",
     "demo:new": "tsx src/demo.ts new",
     "build": "tsc",
