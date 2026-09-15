@@ -98,7 +98,7 @@ async function resolveCustomerFromBody(body) {
     if (result.status === "found") {
       customer = result.customer;
     } else if (result.status === "ambiguous") {
-      customer = result.matches.find((m) => m.id === Number(customerId));
+      customer = result.matches.find((m) => String(m.id) === String(customerId));
     }
     if (!customer) {
       return { error: { status: 404, body: { error: "Selected customer not found." } } };
