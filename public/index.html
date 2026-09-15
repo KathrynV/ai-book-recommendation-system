@@ -3,51 +3,81 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AI Book Recommendation System — Demo</title>
+  <title>AI Book Recommendation System</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <main>
     <h1>AI Book Recommendation System</h1>
     <p class="subtitle">
-      Portfolio demo — runs entirely on synthetic customers, books, and transactions.
-      No real store, customer, or catalog data. See the
-      <a href="https://github.com/KathrynV/ai-book-recommendation-system" target="_blank" rel="noopener">README</a>
-      for the architecture.
+      AI-assisted tool for generating personalized, availability-aware book recommendations.
     </p>
 
     <div id="chooser" class="chooser">
       <button type="button" id="choose-existing" class="chooser-btn">
         Existing customer
-        <span>Pick a demo customer, see their inferred preferences, get 3 recommendations they haven't had yet.</span>
+        <span>Look them up, see a summary of their reading preferences, then recommend 3 titles they haven't had yet.</span>
       </button>
       <button type="button" id="choose-new" class="chooser-btn">
         New customer
-        <span>Enter an age and a couple of interests — get 3 matching titles from the demo catalog.</span>
+        <span>Describe age, topics, and keywords — get 5 library titles to hand them right now.</span>
       </button>
     </div>
 
-    <form id="existing-form" class="hidden">
+    <form id="lookup-form" class="hidden">
       <button type="button" class="back-link" data-back>← Back</button>
-      <label for="customerId">Demo customer</label>
-      <select id="customerId" name="customerId" required></select>
+
+      <label for="query">Customer name, email, or phone</label>
+      <input id="query" name="query" type="text" placeholder="e.g. Priya Chandra" required />
+
+      <label for="apiKey">Anthropic API key</label>
+      <input id="apiKey" name="apiKey" type="password" placeholder="sk-ant-... (or leave blank to use ANTHROPIC_API_KEY from .env)" autocomplete="off" />
+      <p class="hint">Used only for this request — never stored or logged.</p>
+
+      <button type="submit">Get customer</button>
+    </form>
+
+    <div id="customer-summary" class="card hidden">
+      <h2 id="summary-heading"></h2>
+      <p id="summary-text"></p>
+
+      <label class="checkbox-label">
+        <input id="libraryOnly" name="libraryOnly" type="checkbox" checked />
+        Library (borrow) titles only — exclude for-sale recommendations
+      </label>
+
+      <button type="button" id="get-recs-btn">Get recommendations</button>
+    </div>
+
+    <form id="profile-form" class="hidden">
+      <button type="button" class="back-link" data-back>← Back</button>
+
+      <label for="age">Age / reading level</label>
+      <input id="age" name="age" type="text" placeholder="e.g. adult, or ages 6-8" />
+
+      <label for="topics">Preferred topics</label>
+      <input id="topics" name="topics" type="text" placeholder="e.g. animals, adventure, fairy tales" />
+
+      <label for="keywords">Clue words</label>
+      <input id="keywords" name="keywords" type="text" placeholder="e.g. dragons, space, detectives" />
+      <p class="hint">Fill in whatever you know — at least one field is required.</p>
+
+      <label for="profileApiKey">Anthropic API key</label>
+      <input id="profileApiKey" name="profileApiKey" type="password" placeholder="sk-ant-... (or leave blank to use ANTHROPIC_API_KEY from .env)" autocomplete="off" />
+      <p class="hint">Used only for this request — never stored or logged.</p>
+
       <button type="submit">Get recommendations</button>
     </form>
 
-    <form id="new-form" class="hidden">
-      <button type="button" class="back-link" data-back>← Back</button>
-      <label for="age">Age</label>
-      <input id="age" name="age" type="number" min="1" max="17" placeholder="e.g. 6" required />
-      <label for="interests">Interests (comma-separated)</label>
-      <input id="interests" name="interests" type="text" placeholder="e.g. dinosaurs, science" required />
-      <button type="submit">Get recommendations</button>
-    </form>
+    <div id="disambiguation" class="card hidden">
+      <p>Multiple customers matched. Which one?</p>
+      <ul id="match-list"></ul>
+    </div>
 
     <div id="status" class="status hidden"></div>
 
     <div id="results" class="hidden">
       <h2 id="results-heading"></h2>
-      <p id="results-sub"></p>
       <ol id="results-list"></ol>
     </div>
   </main>

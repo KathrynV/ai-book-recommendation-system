@@ -1,0 +1,7 @@
+[
+  { "id": "C001", "name": "Priya Chandra", "email": "priya.chandra@example.test", "phone": "555-0101" },
+  { "id": "C002", "name": "Marcus Doyle", "email": "marcus.doyle@example.test", "phone": "555-0102" },
+  { "id": "C003", "name": "Alex Rivera", "email": "alex.rivera@example.test", "phone": "555-0103" },
+  { "id": "C004", "name": "Alex Rivera", "email": "a.rivera.writes@example.test", "phone": "555-0104" },
+  { "id": "C005", "name": "Jordan Kim", "email": "jordan.kim@example.test", "phone": null }
+]

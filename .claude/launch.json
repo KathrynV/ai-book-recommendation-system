@@ -2,10 +2,11 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "web",
+      "name": "ai-book-recommendation-system",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "web"],
-      "port": 4000
+      "runtimeArgs": ["start"],
+      "port": 3000,
+      "autoPort": true
     }
   ]
 }

@@ -1,29 +1,19 @@
 {
   "name": "ai-book-recommendation-system",
-  "version": "0.1.0",
-  "description": "AI-powered book recommendation workflow using customer preferences, transaction history, inventory availability, custom tools, and MCP integration (portfolio demo with synthetic data).",
+  "version": "1.0.0",
+  "description": "AI-powered book recommendation system using customer history, preferences, and inventory availability.",
   "type": "module",
   "private": true,
   "scripts": {
-    "mcp-server": "tsx src/mcp_server/server.ts",
-    "mcp-client-demo": "tsx src/mcp_client_demo.ts",
-    "demo:existing": "tsx src/demo.ts existing",
-    "demo:new": "tsx src/demo.ts new",
-    "web": "tsx src/web_server.ts",
-    "build": "tsc",
-    "typecheck": "tsc --noEmit"
+    "start": "node --use-system-ca --env-file-if-exists=.env server.js",
+    "mcp-server": "node mcp/server.js"
   },
   "license": "MIT",
+  "engines": {
+    "node": ">=22.9.0"
+  },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.30.0",
-    "zod": "^3.24.1"
-  },
-  "optionalDependencies": {
-    "@anthropic-ai/sdk": "^0.32.1"
-  },
-  "devDependencies": {
-    "@types/node": "^22.10.5",
-    "tsx": "^4.19.2",
-    "typescript": "^5.7.3"
+    "zod": "^4.6.5"
   }
 }

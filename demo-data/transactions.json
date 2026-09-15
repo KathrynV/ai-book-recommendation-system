@@ -1,0 +1,19 @@
+[
+  { "customerId": "C001", "bookId": "B002", "status": "returned" },
+  { "customerId": "C001", "bookId": "B003", "status": "returned" },
+  { "customerId": "C001", "bookId": "B004", "status": "books-on-hand" },
+  { "customerId": "C001", "bookId": "B007", "status": "returned" },
+  { "customerId": "C001", "bookId": "B008", "status": "returned" },
+
+  { "customerId": "C002", "bookId": "B011", "status": "returned" },
+  { "customerId": "C002", "bookId": "B012", "status": "returned" },
+  { "customerId": "C002", "bookId": "B015", "status": "returned" },
+  { "customerId": "C002", "bookId": "B017", "status": "completed" },
+
+  { "customerId": "C003", "bookId": "B023", "status": "returned" },
+  { "customerId": "C003", "bookId": "B024", "status": "returned" },
+  { "customerId": "C003", "bookId": "B030", "status": "returned" },
+
+  { "customerId": "C004", "bookId": "B019", "status": "returned" },
+  { "customerId": "C004", "bookId": "B020", "status": "returned" }
+]

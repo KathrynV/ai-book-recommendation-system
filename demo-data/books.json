@@ -1,0 +1,717 @@
+[
+  {
+    "id": "B001",
+    "sku": "9780010000001",
+    "title": "Detective Milo and the Missing Key",
+    "authors": [
+      "Nora Whitfield"
+    ],
+    "categories": [
+      "Mystery"
+    ],
+    "ageGroup": "Middle Grade",
+    "availability": "for_sale",
+    "inStock": true,
+    "price": 12.99,
+    "currency": "USD",
+    "permalink": "https://example-bookstore.test/books/detective-milo-missing-key"
+  },
+  {
+    "id": "B002",
+    "sku": "9780010000001-L",
+    "title": "Detective Milo and the Missing Key",
+    "authors": [
+      "Nora Whitfield"
+    ],
+    "categories": [
+      "Mystery"
+    ],
+    "ageGroup": "Middle Grade",
+    "availability": "for_borrow",
+    "inStock": false,
+    "price": null,
+    "currency": null,
+    "permalink": "https://example-bookstore.test/books/detective-milo-missing-key"
+  },
+  {
+    "id": "B003",
+    "sku": "9780010000002-L",
+    "title": "Detective Milo and the Silver Locket",
+    "authors": [
+      "Nora Whitfield"
+    ],
+    "categories": [
+      "Mystery"
+    ],
+    "ageGroup": "Middle Grade",
+    "availability": "for_borrow",
+    "inStock": true,
+    "price": null,
+    "currency": null,
+    "permalink": "https://example-bookstore.test/books/detective-milo-silver-locket"
+  },
+  {
+    "id": "B004",
+    "sku": "9780010000003-L",
+    "title": "Detective Milo and the Midnight Train",
+    "authors": [
+      "Nora Whitfield"
+    ],
+    "categories": [
+      "Mystery"
+    ],
+    "ageGroup": "Middle Grade",
+    "availability": "for_borrow",
+    "inStock": true,
+    "price": null,
+    "currency": null,
+    "permalink": "https://example-bookstore.test/books/detective-milo-midnight-train"
+  },
+  {
+    "id": "B005",
+    "sku": "9780010000004-L",
+    "title": "Detective Milo and the Garden Maze",
+    "authors": [
+      "Nora Whitfield"
+    ],
+    "categories": [
+      "Mystery"
+    ],
+    "ageGroup": "Middle Grade",
+    "availability": "for_borrow",
+    "inStock": true,
+    "price": null,
+    "currency": null,
+    "permalink": "https://example-bookstore.test/books/detective-milo-garden-maze"
+  },
+  {
+    "id": "B006",
+    "sku": "9780010000005-L",
+    "title": "Detective Milo and the Library Ghost",
+    "authors": [
+      "Nora Whitfield"
+    ],
+    "categories": [
+      "Mystery"
+    ],
+    "ageGroup": "Middle Grade",
+    "availability": "for_borrow",
+    "inStock": true,
+    "price": null,
+    "currency": null,
+    "permalink": "https://example-bookstore.test/books/detective-milo-library-ghost"
+  },
+  {
+    "id": "B007",
+    "sku": "9780020000001-L",
+    "title": "The Glass Kingdom: The Shattered Crown",
+    "authors": [
+      "P. Okafor"
+    ],
+    "categories": [
+      "Fantasy",
+      "Adventure"
+    ],
+    "ageGroup": "Middle Grade",
+    "availability": "for_borrow",
+    "inStock": true,
+    "price": null,
+    "currency": null,
+    "permalink": "https://example-bookstore.test/books/glass-kingdom-shattered-crown"
+  },
+  {
+    "id": "B008",
+    "sku": "9780020000002-L",
+    "title": "The Glass Kingdom: The Silent Forest",
+    "authors": [
+      "P. Okafor"
+    ],
+    "categories": [
+      "Fantasy",
+      "Adventure"
+    ],
+    "ageGroup": "Middle Grade",
+    "availability": "for_borrow",
+    "inStock": true,
+    "price": null,
+    "currency": null,
+    "permalink": "https://example-bookstore.test/books/glass-kingdom-silent-forest"
+  },
+  {
+    "id": "B009",
+    "sku": "9780020000003-L",
+    "title": "The Glass Kingdom: The River of Names",
+    "authors": [
+      "P. Okafor"
+    ],
+    "categories": [
+      "Fantasy",
+      "Adventure"
+    ],
+    "ageGroup": "Young Adult",
+    "availability": "for_borrow",
+    "inStock": true,
+    "price": null,
+    "currency": null,
+    "permalink": "https://example-bookstore.test/books/glass-kingdom-river-of-names"
+  },
+  {
+    "id": "B010",
+    "sku": "9780020000004-L",
+    "title": "The Glass Kingdom: The Last Ember",
+    "authors": [
+      "P. Okafor"
+    ],
+    "categories": [
+      "Fantasy",
+      "Adventure"
+    ],
+    "ageGroup": "Young Adult",
+    "availability": "for_borrow",
+    "inStock": false,
+    "price": null,
+    "currency": null,
+    "permalink": "https://example-bookstore.test/books/glass-kingdom-last-ember"
+  },
+  {
+    "id": "B011",
+    "sku": "9780030000001-L",
+    "title": "The Lighthouse Keeper's Daughter",
+    "authors": [
+      "Elena Marsh"
+    ],
+    "categories": [
+      "War & Conflict",
+      "Historical Fiction"
+    ],
+    "ageGroup": "Adult",
+    "availability": "for_borrow",
+    "inStock": true,
+    "price": null,
+    "currency": null,
+    "permalink": "https://example-bookstore.test/books/lighthouse-keepers-daughter"
+  },
+  {
+    "id": "B012",
+    "sku": "9780030000002-L",
+    "title": "Ashes Over the Orchard",
+    "authors": [
+      "Elena Marsh"
+    ],
+    "categories": [
+      "War & Conflict",
+      "Historical Fiction"
+    ],
+    "ageGroup": "Adult",
+    "availability": "for_borrow",
+    "inStock": true,
+    "price": null,
+    "currency": null,
+    "permalink": "https://example-bookstore.test/books/ashes-over-the-orchard"
+  },
+  {
+    "id": "B013",
+    "sku": "9780030000003-L",
+    "title": "Letters Never Sent",
+    "authors": [
+      "Elena Marsh"
+    ],
+    "categories": [
+      "War & Conflict",
+      "Biography"
+    ],
+    "ageGroup": "Adult",
+    "availability": "for_borrow",
+    "inStock": true,
+    "price": null,
+    "currency": null,
+    "permalink": "https://example-bookstore.test/books/letters-never-sent"
+  },
+  {
+    "id": "B014",
+    "sku": "9780030000004-L",
+    "title": "The Long Winter Home",
+    "authors": [
+      "Elena Marsh"
+    ],
+    "categories": [
+      "War & Conflict",
+      "Historical Fiction"
+    ],
+    "ageGroup": "Adult",
+    "availability": "for_borrow",
+    "inStock": true,
+    "price": null,
+    "currency": null,
+    "permalink": "https://example-bookstore.test/books/the-long-winter-home"
+  },
+  {
+    "id": "B015",
+    "sku": "9780030000005-L",
+    "title": "The Interpreter's War",
+    "authors": [
+      "Dr. Hana Reyes"
+    ],
+    "categories": [
+      "War & Conflict",
+      "Biography"
+    ],
+    "ageGroup": "Adult",
+    "availability": "for_borrow",
+    "inStock": true,
+    "price": null,
+    "currency": null,
+    "permalink": "https://example-bookstore.test/books/the-interpreters-war"
+  },
+  {
+    "id": "B016",
+    "sku": "9780030000006-L",
+    "title": "Behind Enemy Lines: A Nurse's Story",
+    "authors": [
+      "Dr. Hana Reyes"
+    ],
+    "categories": [
+      "War & Conflict",
+      "Biography"
+    ],
+    "ageGroup": "Adult",
+    "availability": "for_borrow",
+    "inStock": true,
+    "price": null,
+    "currency": null,
+    "permalink": "https://example-bookstore.test/books/behind-enemy-lines"
+  },
+  {
+    "id": "B017",
+    "sku": "9780030000007",
+    "title": "Silence in the Archive",
+    "authors": [
+      "Dr. Hana Reyes"
+    ],
+    "categories": [
+      "Biography"
+    ],
+    "ageGroup": "Adult",
+    "availability": "for_sale",
+    "inStock": true,
+    "price": 24,
+    "currency": "USD",
+    "permalink": "https://example-bookstore.test/books/silence-in-the-archive"
+  },
+  {
+    "id": "B018",
+    "sku": "9780030000008-L",
+    "title": "A Season of Quiet Resistance",
+    "authors": [
+      "Elena Marsh"
+    ],
+    "categories": [
+      "War & Conflict",
+      "Historical Fiction"
+    ],
+    "ageGroup": "Adult",
+    "availability": "for_borrow",
+    "inStock": true,
+    "price": null,
+    "currency": null,
+    "permalink": "https://example-bookstore.test/books/a-season-of-quiet-resistance"
+  },
+  {
+    "id": "B019",
+    "sku": "9780040000001-L",
+    "title": "Why Do Stars Twinkle?",
+    "authors": [
+      "Sam Tran"
+    ],
+    "categories": [
+      "Science",
+      "Space"
+    ],
+    "ageGroup": "Early Reader",
+    "availability": "for_borrow",
+    "inStock": true,
+    "price": null,
+    "currency": null,
+    "permalink": "https://example-bookstore.test/books/why-do-stars-twinkle"
+  },
+  {
+    "id": "B020",
+    "sku": "9780040000002-L",
+    "title": "A Kid's Guide to Black Holes",
+    "authors": [
+      "Sam Tran"
+    ],
+    "categories": [
+      "Science",
+      "Space"
+    ],
+    "ageGroup": "Middle Grade",
+    "availability": "for_borrow",
+    "inStock": true,
+    "price": null,
+    "currency": null,
+    "permalink": "https://example-bookstore.test/books/kids-guide-black-holes"
+  },
+  {
+    "id": "B021",
+    "sku": "9780040000003-L",
+    "title": "The Solar System in Your Backpack",
+    "authors": [
+      "Sam Tran"
+    ],
+    "categories": [
+      "Science",
+      "Space"
+    ],
+    "ageGroup": "Early Reader",
+    "availability": "for_borrow",
+    "inStock": true,
+    "price": null,
+    "currency": null,
+    "permalink": "https://example-bookstore.test/books/solar-system-in-your-backpack"
+  },
+  {
+    "id": "B022",
+    "sku": "9780040000004-L",
+    "title": "Rockets, Robots, and Rovers",
+    "authors": [
+      "Sam Tran"
+    ],
+    "categories": [
+      "Science",
+      "Space"
+    ],
+    "ageGroup": "Middle Grade",
+    "availability": "for_borrow",
+    "inStock": true,
+    "price": null,
+    "currency": null,
+    "permalink": "https://example-bookstore.test/books/rockets-robots-rovers"
+  },
+  {
+    "id": "B023",
+    "sku": "9780050000001-L",
+    "title": "Pip the Fox Finds a Friend",
+    "authors": [
+      "Bea Lindqvist"
+    ],
+    "categories": [
+      "Animals"
+    ],
+    "ageGroup": "Toddler",
+    "availability": "for_borrow",
+    "inStock": true,
+    "price": null,
+    "currency": null,
+    "permalink": "https://example-bookstore.test/books/pip-the-fox-finds-a-friend"
+  },
+  {
+    "id": "B024",
+    "sku": "9780050000002-L",
+    "title": "The Bear Who Forgot How to Hibernate",
+    "authors": [
+      "Bea Lindqvist"
+    ],
+    "categories": [
+      "Animals"
+    ],
+    "ageGroup": "Toddler",
+    "availability": "for_borrow",
+    "inStock": true,
+    "price": null,
+    "currency": null,
+    "permalink": "https://example-bookstore.test/books/bear-who-forgot-hibernate"
+  },
+  {
+    "id": "B025",
+    "sku": "9780050000003-L",
+    "title": "Otter's Big Adventure",
+    "authors": [
+      "Bea Lindqvist"
+    ],
+    "categories": [
+      "Animals",
+      "Adventure"
+    ],
+    "ageGroup": "Early Reader",
+    "availability": "for_borrow",
+    "inStock": true,
+    "price": null,
+    "currency": null,
+    "permalink": "https://example-bookstore.test/books/otters-big-adventure"
+  },
+  {
+    "id": "B026",
+    "sku": "9780050000004-L",
+    "title": "The Rabbit Who Ran Away",
+    "authors": [
+      "Bea Lindqvist"
+    ],
+    "categories": [
+      "Animals"
+    ],
+    "ageGroup": "Toddler",
+    "availability": "for_borrow",
+    "inStock": true,
+    "price": null,
+    "currency": null,
+    "permalink": "https://example-bookstore.test/books/rabbit-who-ran-away"
+  },
+  {
+    "id": "B027",
+    "sku": "9780060000001-L",
+    "title": "Best Friends, Worst Timing",
+    "authors": [
+      "Marcus Webb"
+    ],
+    "categories": [
+      "Friendship"
+    ],
+    "ageGroup": "Middle Grade",
+    "availability": "for_borrow",
+    "inStock": true,
+    "price": null,
+    "currency": null,
+    "permalink": "https://example-bookstore.test/books/best-friends-worst-timing"
+  },
+  {
+    "id": "B028",
+    "sku": "9780060000002-L",
+    "title": "The Sleepover Club",
+    "authors": [
+      "Marcus Webb"
+    ],
+    "categories": [
+      "Friendship"
+    ],
+    "ageGroup": "Middle Grade",
+    "availability": "for_borrow",
+    "inStock": true,
+    "price": null,
+    "currency": null,
+    "permalink": "https://example-bookstore.test/books/the-sleepover-club"
+  },
+  {
+    "id": "B029",
+    "sku": "9780060000003-L",
+    "title": "Two Left Shoes",
+    "authors": [
+      "Marcus Webb"
+    ],
+    "categories": [
+      "Friendship"
+    ],
+    "ageGroup": "Middle Grade",
+    "availability": "for_borrow",
+    "inStock": true,
+    "price": null,
+    "currency": null,
+    "permalink": "https://example-bookstore.test/books/two-left-shoes"
+  },
+  {
+    "id": "B030",
+    "sku": "9780070000001-L",
+    "title": "The Woodcutter's Youngest Daughter",
+    "authors": [
+      "Ingrid Solberg"
+    ],
+    "categories": [
+      "Fairy Tales"
+    ],
+    "ageGroup": "Early Reader",
+    "availability": "for_borrow",
+    "inStock": true,
+    "price": null,
+    "currency": null,
+    "permalink": "https://example-bookstore.test/books/woodcutters-youngest-daughter"
+  },
+  {
+    "id": "B031",
+    "sku": "9780070000002-L",
+    "title": "Thistledown",
+    "authors": [
+      "Ingrid Solberg"
+    ],
+    "categories": [
+      "Fairy Tales"
+    ],
+    "ageGroup": "Early Reader",
+    "availability": "for_borrow",
+    "inStock": true,
+    "price": null,
+    "currency": null,
+    "permalink": "https://example-bookstore.test/books/thistledown"
+  },
+  {
+    "id": "B032",
+    "sku": "9780070000003-L",
+    "title": "The Glass Slipper Waited",
+    "authors": [
+      "Ingrid Solberg"
+    ],
+    "categories": [
+      "Fairy Tales"
+    ],
+    "ageGroup": "Early Reader",
+    "availability": "for_borrow",
+    "inStock": true,
+    "price": null,
+    "currency": null,
+    "permalink": "https://example-bookstore.test/books/glass-slipper-waited"
+  },
+  {
+    "id": "B033",
+    "sku": "9780080000001-L",
+    "title": "The Cartographer's Apprentice",
+    "authors": [
+      "Tomas Villanueva"
+    ],
+    "categories": [
+      "Adventure"
+    ],
+    "ageGroup": "Young Adult",
+    "availability": "for_borrow",
+    "inStock": true,
+    "price": null,
+    "currency": null,
+    "permalink": "https://example-bookstore.test/books/cartographers-apprentice"
+  },
+  {
+    "id": "B034",
+    "sku": "9780080000002-L",
+    "title": "North of Nowhere",
+    "authors": [
+      "Tomas Villanueva"
+    ],
+    "categories": [
+      "Adventure"
+    ],
+    "ageGroup": "Young Adult",
+    "availability": "for_borrow",
+    "inStock": true,
+    "price": null,
+    "currency": null,
+    "permalink": "https://example-bookstore.test/books/north-of-nowhere"
+  },
+  {
+    "id": "B035",
+    "sku": "9780080000003-L",
+    "title": "The Salt Road",
+    "authors": [
+      "Tomas Villanueva"
+    ],
+    "categories": [
+      "Adventure"
+    ],
+    "ageGroup": "Young Adult",
+    "availability": "for_borrow",
+    "inStock": true,
+    "price": null,
+    "currency": null,
+    "permalink": "https://example-bookstore.test/books/the-salt-road"
+  },
+  {
+    "id": "B036",
+    "sku": "9780090000001-L",
+    "title": "Evening Light, Slow River",
+    "authors": [
+      "Priya Nair"
+    ],
+    "categories": [
+      "Poetry"
+    ],
+    "ageGroup": "Adult",
+    "availability": "for_borrow",
+    "inStock": true,
+    "price": null,
+    "currency": null,
+    "permalink": "https://example-bookstore.test/books/evening-light-slow-river"
+  },
+  {
+    "id": "B037",
+    "sku": "9780090000002-L",
+    "title": "What the Field Remembers",
+    "authors": [
+      "Priya Nair"
+    ],
+    "categories": [
+      "Poetry",
+      "War & Conflict"
+    ],
+    "ageGroup": "Adult",
+    "availability": "for_borrow",
+    "inStock": true,
+    "price": null,
+    "currency": null,
+    "permalink": "https://example-bookstore.test/books/what-the-field-remembers"
+  },
+  {
+    "id": "B038",
+    "sku": "9780100000001-L",
+    "title": "Goodnight, Little Sailor",
+    "authors": [
+      "Jules Ferrand"
+    ],
+    "categories": [
+      "Animals"
+    ],
+    "ageGroup": "Toddler",
+    "availability": "for_borrow",
+    "inStock": true,
+    "price": null,
+    "currency": null,
+    "permalink": "https://example-bookstore.test/books/goodnight-little-sailor"
+  },
+  {
+    "id": "B039",
+    "sku": "9780110000001-L",
+    "title": "The Quiet Between Us",
+    "authors": [
+      "Marisol Pena"
+    ],
+    "categories": [
+      "Friendship"
+    ],
+    "ageGroup": "Adult",
+    "availability": "for_borrow",
+    "inStock": true,
+    "price": null,
+    "currency": null,
+    "permalink": "https://example-bookstore.test/books/the-quiet-between-us"
+  },
+  {
+    "id": "B040",
+    "sku": "9780120000001-L",
+    "title": "Deep Sea Wonders",
+    "authors": [
+      "Sam Tran"
+    ],
+    "categories": [
+      "Science"
+    ],
+    "ageGroup": "Early Reader",
+    "availability": "for_borrow",
+    "inStock": true,
+    "price": null,
+    "currency": null,
+    "permalink": "https://example-bookstore.test/books/deep-sea-wonders"
+  },
+  {
+    "id": "B041",
+    "sku": "9780130000001-L",
+    "title": "The Last Garden in the City",
+    "authors": [
+      "Elena Marsh"
+    ],
+    "categories": [
+      "War & Conflict",
+      "Historical Fiction"
+    ],
+    "ageGroup": "Adult",
+    "availability": "for_borrow",
+    "inStock": false,
+    "price": null,
+    "currency": null,
+    "permalink": "https://example-bookstore.test/books/the-last-garden-in-the-city"
+  }
+]

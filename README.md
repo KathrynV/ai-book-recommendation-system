@@ -1,146 +1,173 @@
 # AI-Powered Book Recommendation System
 
-AI-powered recommendation workflow using customer preferences, transaction history, inventory availability, custom tools, and MCP integration.
+An AI-powered recommendation application designed for a real-world bookstore and lending-library environment.
 
-> **Note on data:** this is a portfolio version of a production system. All data in this repository (`data/*.csv`) is 100% synthetic — fake customer IDs, invented book titles, invented transactions. No real customer information, order history, or catalog data is included. See [Data privacy](#data-privacy) below.
+The system combines customer transaction history, reading preferences, catalog metadata, and current inventory availability to generate personalized book recommendations.
+
+The original application was built and tested in an operational environment containing 1,500+ registered customers and 3,500+ titles. This public portfolio version uses synthetic data and contains no customer information, production credentials, proprietary endpoints, or confidential business data.
 
 ## Business Problem
 
-Selecting personalized books manually from a large catalog is time-consuming and requires reviewing a customer's previous selections, preferences, and current inventory.
+Selecting personalized books manually from a catalog of thousands of titles requires staff to consider multiple factors:
+
+- previous purchases and borrowing history
+- reading preferences
+- age and reading level
+- topics and interests
+- previous selections
+- current inventory availability
+
+The goal of this project was to turn that multi-step manual process into a structured AI-assisted workflow.
 
 ## Solution
 
-I designed and built an AI-powered recommendation application that connects to customer history and catalog data through custom tools and an MCP server.
+I designed and built an application that combines operational data retrieval, filtering logic, inventory checks, and AI-assisted recommendation generation.
 
-For **returning customers**, the system:
-- retrieves historical orders (borrows/purchases);
-- identifies preferences from the categories of books they've engaged with;
-- removes previously selected titles from consideration;
-- checks current availability;
-- returns three personalized recommendations.
+For an existing customer, the system:
 
-For **new customers**, the system:
-- accepts age and thematic preferences;
-- searches available inventory for their age group;
-- returns three relevant recommendations.
+1. Retrieves the customer profile.
+2. Analyzes previous purchases and borrowing history.
+3. Identifies reading preferences.
+4. Searches the current catalog.
+5. Excludes previously selected titles.
+6. Checks current availability.
+7. Generates three personalized recommendations.
+
+For a new customer, the system:
+
+1. Collects age or reading level.
+2. Collects topics and interests.
+3. Searches available inventory.
+4. Identifies relevant titles.
+5. Generates three personalized recommendations.
+
+## Business Scale
+
+The original application was designed and tested against an operational environment with:
+
+- 1,500+ registered customers
+- 3,500+ catalog titles
+- historical transaction data
+- live inventory information
+
+The tested workflow can generate three personalized, availability-aware recommendations in approximately five minutes.
 
 ## Architecture
 
-```mermaid
-flowchart LR
-    U["User\n(customer request)"] --> APP["AI Application\n(src/recommend.ts)"]
-    APP --> MCP["MCP Server\n(src/mcp_server)"]
-    MCP --> TOOLS["Custom Tools\nsearch_customer / search_books /\nget_customer_history / check_inventory"]
-    TOOLS --> DATA["Customer / Transaction /\nCatalog / Inventory Data"]
-    DATA --> TOOLS
-    TOOLS --> MCP
-    MCP --> APP
-    APP -->|optional| LLM["Claude\n(reasoning + explanations)"]
-    LLM --> APP
-    APP --> REC["3 Personalized\nRecommendations"]
+```
+User (browser)
+  ↓
+Web application (Node.js HTTP server)
+  ↓
+Recommendation engine (src/recommend.js)
+  ↓
+Data access layer (src/customers.js, src/catalog.js)
+  ↓
+Customer / transaction / catalog data
+  ↓
+Claude — Anthropic Messages API (tool-use for structured output)
+  ↓
+Personalized recommendations
 ```
 
-In production, `DATA` is the store's real database (customers, orders, inventory). In this demo, `DATA` is the synthetic CSV files in [`data/`](data/) — every other layer (tools, MCP server, recommendation logic) is the same code that runs in production.
+The data access layer is intentionally decoupled from the recommendation logic: this public version reads synthetic JSON files (`demo-data/`), while the original implementation calls a real store's customer and catalog APIs behind the same two interfaces (`resolveCustomer`/`getRecentOrderHistory` and `searchProducts`/`searchCategories`/`searchProductsInCategory`/`getProductBySku`). Swapping the backing data source required no changes to the recommendation logic itself.
 
-The Claude reasoning step is optional: if `ANTHROPIC_API_KEY` is set, the app asks Claude to pick and explain the final 3 recommendations from the candidate shortlist; otherwise it falls back to rule-based scoring so the demo runs fully offline with no credentials.
+A notable design detail: topic search is driven by the catalog's category structure, not literal title-word matching — a request for books about a theme finds titles that are genuinely about that theme even when the theme's name never appears in the title (see `src/recommend.js` and the "war" example in `demo-data/books.json`, where most matching titles don't contain the word).
 
-## Project structure
+## MCP Server
+
+`mcp/` exposes the same data-access layer as a set of tools over the [Model Context Protocol](https://modelcontextprotocol.io) — independent of the web app, and usable by any MCP client (Claude Desktop, Claude Code, or another agent), not just this project's own UI:
 
 ```
-data/                  synthetic customers.csv / books.csv / transactions.csv
-public/                minimal browser UI (index.html / app.js / style.css)
-src/
-  data.ts              CSV loading (swap for a DB client in production)
-  tools/
-    searchCustomer.ts
-    searchBooks.ts
-    getCustomerHistory.ts
-    checkInventory.ts
-  mcp_server/
-    server.ts          MCP server exposing the tools above over stdio
-  mcp_client_demo.ts    real MCP client -> server round trip over stdio
-  recommend.ts          recommendation engine (rule-based + optional Claude pass)
-  demo.ts               CLI entry point for the two demo scenarios
-  web_server.ts          minimal HTTP server backing the browser UI
+mcp/
+├── server.js
+└── tools/
+    ├── searchCustomers.js       — look up a customer by name, email, or phone
+    ├── getCustomerHistory.js    — fetch a customer's order/borrow history
+    ├── searchCatalog.js         — literal or category-based thematic search
+    └── checkAvailability.js     — check a single book's stock/availability by SKU
 ```
 
-## Running the demo
-
-### In the browser
-
-```bash
-npm install
-npm run web
-```
-
-Then open [http://localhost:4000](http://localhost:4000) — pick "Existing customer" (choose one of the demo customer IDs) or "New customer" (enter an age and a few interests) and see live recommendations, backed by the same `src/recommend.ts` engine and synthetic data described above.
-
-### On the command line
-
-```bash
-npm install
-npm run demo:existing -- C002
-npm run demo:new -- --age 6 --interests dinosaurs,science
-```
-
-Optionally, copy `.env.example` to `.env` and set `ANTHROPIC_API_KEY` to enable the Claude reasoning/explanation pass; without it, recommendations use the rule-based fallback.
-
-To run the MCP server standalone (e.g. to connect it to Claude Desktop or another MCP client) instead of calling the tool functions directly:
+Run it:
 
 ```bash
 npm run mcp-server
 ```
 
-To see a real MCP client talk to that server over stdio (list tools, call `get_customer_history` and `search_books`) rather than importing the tool functions directly:
+It speaks MCP over stdio, so it's meant to be launched by an MCP client rather than run standalone — point Claude Desktop's or Claude Code's MCP config at `node mcp/server.js` in this repo, or connect to it programmatically with `@modelcontextprotocol/sdk`'s client. Same synthetic `demo-data/` as the web app; no real store, no real customer data.
+
+## Technologies
+
+- JavaScript / Node.js (no framework — plain `node:http`)
+- Anthropic Claude API, using tool-use for schema-validated structured output
+- Model Context Protocol (MCP) server exposing reusable, independently-callable tools
+- Structured data filtering: category/theme matching, age-band filtering, deduplication against prior history
+- Inventory/availability validation
+- HTML / CSS / JavaScript (vanilla, no frontend framework)
+
+## Getting Started
 
 ```bash
-npm run mcp-client-demo
+git clone https://github.com/KathrynV/ai-book-recommendation-system.git
+cd ai-book-recommendation-system
+cp .env.example .env
+# either set ANTHROPIC_API_KEY in .env, or leave it blank and paste a key into the form each time
+npm start
 ```
 
-## Demo output
+Then open http://localhost:3000. Try it with the bundled synthetic customers:
 
-**Existing customer** — profile built from transaction history, previously-read titles excluded:
+| Try searching for...            | Demonstrates                                                        |
+| -------------------------------- | -------------------------------------------------------------------- |
+| `Priya Chandra`                  | Series completism — she's partway through two series                |
+| `Marcus Doyle`                   | Thematic search — his history is all "War & Conflict" adult fiction  |
+| `Alex Rivera`                    | Disambiguation — two different people share this name                |
+| `Jordan Kim`                     | The empty-history state (no transactions on file)                    |
+| New customer, age "adult", topic "war" | Thematic catalog search with age-band filtering, no history needed |
 
-```
-$ npm run demo:existing -- C002
+## Privacy & Security
 
-Customer C002
-Preferences (from history): Nature, Adventure, Animals
-Recommended:
-  1. The Night Train to Somewhere [Adventure] (B041)
-     Matches this customer's interest in adventure, based on past borrows/purchases.
-  2. Space Explorers [Science] (B002)
-     Popular pick in this customer's age group that they haven't read yet.
-  3. Starlight Voyage [Space] (B005)
-     Popular pick in this customer's age group that they haven't read yet.
-```
+This repository is a sanitized portfolio version of a real-world application.
 
-**New customer** — no history, recommendations from stated age and interests:
+It does not contain:
 
-```
-$ npm run demo:new -- --age 6 --interests dinosaurs,science
+- real customer information
+- transaction histories
+- production database credentials
+- API keys
+- production endpoints
+- proprietary business data
 
-New customer, age 6 (age group 5-7)
-Interests: dinosaurs, science
-Recommended:
-  1. The Last Dinosaur Egg [Dinosaurs] (B027)
-     Matches the stated interest in dinosaurs.
-  2. Seeds of Wonder [Science] (B040)
-     Matches the stated interest in science.
-  3. The Last Triceratops [Dinosaurs] (B046)
-     Matches the stated interest in dinosaurs.
-```
+All demonstration data is synthetic.
 
-No store name, real customer, or real book title appears anywhere in this repository or its output.
+## Project Status
 
-## Data privacy
+The original application has been built and tested and is being prepared for integration into daily operational workflows.
 
-The production environment this design is based on holds approximately 1,500+ registered customers and 3,500+ books, backed by a real database with customer PII (names, contact info, order history) and proprietary catalog data. **None of that is present here.** This portfolio version uses completely synthetic data (fabricated customer IDs, invented book titles, invented transactions) to protect business and customer information, and demonstrates the same architecture and logic that runs in production.
+## What I Built
 
-## Outcome
+My work on the project included:
 
-The production application generates three personalized recommendations per customer in approximately five minutes of staff time saved versus manual lookup.
+- identifying the business problem and defining the workflow
+- designing the recommendation logic
+- connecting AI workflows to operational data
+- developing custom data-retrieval modules
+- filtering previously selected titles
+- validating inventory availability
+- designing workflows for both existing and new customers
+- testing the end-to-end recommendation process
+
+## Future Development
+
+Potential next steps include:
+
+- operational rollout
+- recommendation acceptance tracking
+- employee time-savings measurement
+- recommendation conversion analysis
+- improved recommendation ranking
+- dashboard reporting for recommendation performance
 
 ## License
 
-[MIT](LICENSE)
+MIT — see [LICENSE](LICENSE).
