@@ -1,4 +1,4 @@
-import { resolveCustomer, getRecentOrderHistory } from "./customers.js";
+import { resolveCustomer, getCustomerById, getRecentOrderHistory } from "./customers.js";
 import {
   searchProducts,
   searchCategories,
@@ -23,6 +23,14 @@ export async function findCustomer(query) {
   if (matches.length === 0) return { status: "not_found" };
   if (matches.length > 1) return { status: "ambiguous", matches };
   return { status: "found", customer: matches[0] };
+}
+
+// Direct id lookup — for a caller that already resolved a customer earlier
+// and is just referencing them again (e.g. the "Get recommendations" step
+// reusing the id from "Get customer"), rather than a fresh text search.
+export async function findCustomerById(id) {
+  const customer = await getCustomerById(id);
+  return customer ? { status: "found", customer } : { status: "not_found" };
 }
 
 // Enriches a bounded sample of unique history SKUs with catalog metadata

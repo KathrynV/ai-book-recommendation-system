@@ -70,7 +70,7 @@ Claude — Anthropic Messages API (tool-use for structured output)
 Personalized recommendations
 ```
 
-The data access layer is intentionally decoupled from the recommendation logic: this public version reads synthetic JSON files (`demo-data/`), while the original implementation calls a real store's customer and catalog APIs behind the same two interfaces (`resolveCustomer`/`getRecentOrderHistory` and `searchProducts`/`searchCategories`/`searchProductsInCategory`/`getProductBySku`). Swapping the backing data source required no changes to the recommendation logic itself.
+The public portfolio version uses synthetic JSON data while preserving the same data-access architecture used by the original application. This allows the recommendation logic to be demonstrated without exposing production systems or proprietary data.
 
 A notable design detail: topic search is driven by the catalog's category structure, not literal title-word matching — a request for books about a theme finds titles that are genuinely about that theme even when the theme's name never appears in the title (see `src/recommend.js` and the "war" example in `demo-data/books.json`, where most matching titles don't contain the word).
 

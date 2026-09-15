@@ -48,6 +48,15 @@ export async function resolveCustomer(query) {
   return matches.map(toCustomerSummary);
 }
 
+// Direct lookup by id — used when a caller already resolved a customer
+// earlier (e.g. re-confirming which disambiguation match was picked, or a
+// later request in the same session that only carries the id forward) and
+// shouldn't re-run it through text search.
+export async function getCustomerById(id) {
+  const c = customers.find((c) => String(c.id) === String(id));
+  return c ? toCustomerSummary(c) : null;
+}
+
 // Fetches a customer's order history, resolved from transaction rows
 // (customerId + bookId + status) to deduplicated {name, sku} line items —
 // mirrors what a real order API would return (title + SKU only, no

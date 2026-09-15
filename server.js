@@ -4,6 +4,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import {
   findCustomer,
+  findCustomerById,
   recommendForCustomer,
   recommendForProfile,
   profileCustomer,
@@ -93,7 +94,23 @@ function checkApiKey(apiKey) {
 async function resolveCustomerFromBody(body) {
   const { query, customerId } = body;
   if (customerId) {
-    const result = await findCustomer(query || String(customerId));
+    if (!query) {
+      // No query — a trusted repeat reference to an already-resolved
+      // customer (e.g. the "Get recommendations" step reusing the id
+      // "Get customer" resolved a moment ago). Look them up directly rather
+      // than running the id through text search, where it would never match
+      // a name/email/phone and always come back "not found".
+      const result = await findCustomerById(customerId);
+      if (result.status !== "found") {
+        return { error: { status: 404, body: { error: "Selected customer not found." } } };
+      }
+      return { customer: result.customer };
+    }
+
+    // Coming back from a disambiguation step: re-resolve via the query the
+    // user actually typed, then confirm which of the (possibly several)
+    // matches they picked, rather than trusting an unverified id/name pair.
+    const result = await findCustomer(query);
     let customer;
     if (result.status === "found") {
       customer = result.customer;
